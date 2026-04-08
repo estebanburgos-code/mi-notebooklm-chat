@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG & MCP Architecture | Guía Interactiva</title>
+    <meta name="description" content="Aprende los conceptos fundamentales de RAG (Retrieval-Augmented Generation), Chunks, Embeddings y el protocolo MCP en esta guía interactiva.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow"></div>
+    
+    <nav>
+        <div class="logo">AI<span>Knowledge</span></div>
+        <div class="nav-links">
+            <a href="#rag">RAG</a>
+            <a href="#chunks">Chunks</a>
+            <a href="#embeddings">Embeddings</a>
+            <a href="#mcp">MCP</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1 class="animate-text">RAG & MCP Architecture</h1>
+            <p class="subtitle animate-text-delay">Explora el ecosistema de la Inteligencia Artificial moderna: desde la recuperación de datos hasta la orquestación con MCP.</p>
+            <div class="hero-btns">
+                <a href="#rag" class="btn primary">Empezar Guía</a>
+                <button class="btn secondary" id="open-chat">Abrir Chatbot</button>
+            </div>
+        </section>
+
+        <section id="rag" class="content-section">
+            <div class="glass-card" data-reveal>
+                <div class="badge">Concepto Base</div>
+                <h2>RAG (Retrieval-Augmented Generation)</h2>
+                <p>RAG es una técnica que combina la potencia de la recuperación de información con la generación de texto fluida.</p>
+                
+                <div class="grid-2">
+                    <div class="info-block">
+                        <h3>¿Cómo funciona?</h3>
+                        <ol class="step-list">
+                            <li><span>1</span> El usuario hace una pregunta.</li>
+                            <li><span>2</span> El sistema busca información relevante en una base de datos.</li>
+                            <li><span>3</span> Esa información se pasa como contexto a un modelo de lenguaje.</li>
+                            <li><span>4</span> El modelo genera una respuesta basada en ese contexto.</li>
+                        </ol>
+                    </div>
+                    <div class="info-block highlight">
+                        <h3>Características Clave</h3>
+                        <ul>
+                            <li>No depende solo del conocimiento del modelo.</li>
+                            <li>Usa información externa (documentos, web, PDFs, etc.).</li>
+                            <li>Mejora precisión y reduce errores (alucinaciones).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <strong>Ejemplo Real:</strong>
+                    <div class="chat-example">
+                        <p class="user-msg">"¿Cuál es el horario de atención?"</p>
+                        <p class="bot-msg">Busca en documentos → Encuentra el chunk de horario → Genera respuesta precisa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chunks" class="content-section">
+            <div class="glass-card" data-reveal>
+                <div class="badge-purple">Estructura</div>
+                <h2>Chunks: Fragmentación Inteligente</h2>
+                <p>Los chunks son fragmentos pequeños de texto en los que se divide un documento grande para su procesamiento.</p>
+
+                <div class="grid-3">
+                    <div class="mini-card">
+                        <h4>Búsqueda Ágil</h4>
+                        <p>Facilitan la localización precisa de información relevante.</p>
+                    </div>
+                    <div class="mini-card">
+                        <h4>Escalabilidad</h4>
+                        <p>Permiten trabajar con textos extremadamente largos.</p>
+                    </div>
+                    <div class="mini-card">
+                        <h4>Precisión</h4>
+                        <p>Mejoran drásticamente el enfoque del contexto en RAG.</p>
+                    </div>
+                </div>
+
+                <div class="best-practices">
+                    <h3>Buenas Prácticas</h3>
+                    <div class="practices-grid">
+                        <span>200–500 palabras</span>
+                        <span>Sentido completo</span>
+                        <span>Evitar cortes abruptos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="embeddings" class="content-section">
+            <div class="glass-card" data-reveal>
+                <div class="badge-blue">Matemática del Lenguaje</div>
+                <h2>Embeddings: Vectores Semánticos</h2>
+                <p>Representaciones numéricas (vectores) de texto que capturan su significado profundo, no solo las palabras.</p>
+
+                <div class="embedding-viz">
+                    <div class="vector-display">
+                        <code>[0.12, -0.44, 0.98, 0.01, ...]</code>
+                        <p>Los números representan características abstractas: tema, contexto y matices.</p>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="info-block">
+                        <h3>¿En qué se basan?</h3>
+                        <p>Se generan mediante IA entrenada con libros, web y artículos para entender:</p>
+                        <ul class="check-list">
+                            <li><strong>Contexto:</strong> Diferencia entre "Banco" (asiento) y "Banco" (finanzas).</li>
+                            <li><strong>Relaciones:</strong> Entiende que <em>Rey - Hombre + Mujer ≈ Reina</em>.</li>
+                            <li><strong>Uso real:</strong> Capta cómo fluye el lenguaje humano.</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3>Uso en RAG</h3>
+                        <ol class="step-list compact">
+                            <li>Chunks → Embedding</li>
+                            <li>Almacenamiento en DB Vectorial</li>
+                            <li>Pregunta → Embedding</li>
+                            <li>Comparación por similitud (Coseno)</li>
+                            <li>Recuperación del contexto</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mcp" class="content-section">
+            <div class="grid-2 gap-large">
+                <div class="glass-card" data-reveal>
+                    <div class="badge-green">Servidor</div>
+                    <h2>MCP Server</h2>
+                    <p>Un servicio que expone datos y herramientas directamente a un modelo de lenguaje.</p>
+                    <ul class="feature-list">
+                        <li>Acceso a documentos dinámicos.</li>
+                        <li>Búsqueda en bases de datos vivas.</li>
+                        <li>Ejecución de funciones (ej: <code>search_docs</code>).</li>
+                    </ul>
+                </div>
+                <div class="glass-card" data-reveal>
+                    <div class="badge-orange">Cliente</div>
+                    <h2>MCP Client</h2>
+                    <p>El componente orquestador que conecta al usuario con el servidor y el modelo.</p>
+                    <ul class="feature-list">
+                        <li>Recibe la pregunta del usuario.</li>
+                        <li>Consulta al MCP Server.</li>
+                        <li>Pasa la info recolectada al modelo.</li>
+                        <li>Entrega la respuesta final.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="flow-summary">
+            <div class="glass-card full-width" data-reveal>
+                <h2>El Ciclo Completo</h2>
+                <div class="flow-steps">
+                    <div class="flow-item"><span>1</span> Contenido</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item"><span>2</span> Chunks</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item"><span>3</span> Embeddings</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item"><span>4</span> DB Vectorial</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item"><span>5</span> Pregunta (Emb)</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item"><span>6</span> MCP Bridge</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item"><span>7</span> Respuesta</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AI Knowledge Guide | Diseñado para integración con MCP</p>
+    </footer>
+
+    <!-- Chatbot Button Simulation -->
+    <div id="chat-container" class="hidden">
+        <div class="chat-window glass">
+            <div class="chat-header">
+                <span>AI Assistant (NotebookLM Integration)</span>
+                <button id="close-chat">&times;</button>
+            </div>
+            <div id="chat-messages" class="chat-body">
+                <p class="bot-msg">¡Hola! Soy tu experto en RAG y MCP. ¿En qué puedo ayudarte hoy?</p>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chat-input" placeholder="Pregúntame sobre RAG, Chunks o MCP...">
+                <button id="send-chat">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
