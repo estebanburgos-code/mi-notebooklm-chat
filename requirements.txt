@@ -1,4 +1,5 @@
 flask
 flask-cors
-notebooklm-mcp
+requests
 gunicorn
+notebooklm-mcp-simple
